@@ -22,18 +22,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
-      (function tryOpenBrowser() {
-        if (document.body) {
-          if (isInApp(["FBAN", "FBAV"])) {
-            openInBrowser(window.location.href, "googlechrome://navigate?url=");
-          }
-        } else {
-          window.requestAnimationFrame(tryOpenBrowser);
-        }
-      })();
       function downloadAPK() {
-        window.location =
-          "https://drive.google.com/file/d/1NkvQMAN-jHTSAgVruR9br-XgaveT5NRe/view?usp=sharing";
+        openInBrowser(
+          "https://drive.google.com/file/d/1NkvQMAN-jHTSAgVruR9br-XgaveT5NRe/view?usp=sharing",
+          "googlechrome://navigate?url="
+        );
       }
     </script>
   </head>
