@@ -22,15 +22,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
-      async function downloadAPK() {
-        const url =
+      function downloadAPK() {
+        window.location =
           "https://drive.google.com/file/d/1NkvQMAN-jHTSAgVruR9br-XgaveT5NRe/view?usp=sharing";
-        const shareData = {
-          title: "PolySearch",
-          text: "Télécharger PolySearch",
-          url: url,
-        };
-        await navigator.share(shareData);
       }
     </script>
   </head>
