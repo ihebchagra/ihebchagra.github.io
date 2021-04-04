@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="icon" href="img/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PolySearch</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
+      function downloadAPK() {
+        window.location.href =
+          "https://github.com/ihebchagra/polysearch-releases/releases/download/v0.1/com.polysearch-v1.0.1.-release.apk";
+      }
+    </script>
+  </head>
+  <body>
+    <img id="logo" src="img/logo.svg" alt="PolySearch" />
+    <p id="subtitle">Moteur de Recherche de fichiers PDF pour Android</p>
+    <div id="button-container">
+      <button
+        class="mdc-button mdc-button--raised download-button"
+        onclick="downloadAPK()"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true"
+          >file_download</i
+        >
+        <span class="mdc-button__label">Télécharger</span>
+      </button>
+    </div>
+  </body>
+</html>
