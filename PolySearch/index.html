@@ -20,14 +20,23 @@
     <title>PolySearch</title>
     <link rel="stylesheet" href="css/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script>
-      mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
       function downloadAPK() {
         window.open(
           "https://drive.google.com/file/d/1NkvQMAN-jHTSAgVruR9br-XgaveT5NRe/view?usp=sharing"
         );
       }
     </script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <img id="logo" src="img/logo.svg" alt="PolySearch" />
@@ -44,5 +53,17 @@
         <span class="mdc-button__label">Télécharger</span>
       </button>
     </div>
+    <script>
+      mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
+      function isFacebookBrowser() {
+        const ua = navigator.userAgent || navigator.vendor;
+        return ua.indexOf("FBAN") > -1 || ua.indexOf("FBAV") > -1;
+      }
+      if (isFacebookBrowser()) {
+        $("#button-container").replaceWith(
+          '<p id="subtitle">Ouvrir lien avec chrome pour télécharger</p>'
+        );
+      }
+    </script>
   </body>
 </html>
