@@ -7,6 +7,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+#arrow {
+  position: absolute;
+  width: 10%;
+  left: 85%;
+  top: 2%;
+}
+
 #logo {
   width: 100%;
   height: auto;
@@ -17,6 +24,13 @@ body {
   font-family: "Roboto", sans-serif;
   text-align: center;
   font-weight: 400;
+}
+
+#warning {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: 400;
+  padding-top: 4rem;
 }
 
 h2 {

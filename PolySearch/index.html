@@ -30,6 +30,7 @@
         window.location.href =
           "https://drive.google.com/file/d/112M09XMy6NJHrKG5kDdfDgvALDx3nmbm/view?usp=sharing";
       }
+      mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
     </script>
     <script
       src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
@@ -38,6 +39,7 @@
     ></script>
   </head>
   <body>
+    <img id="arrow" src="img/arrow.svg" alt="PolySearch" />
     <img id="logo" src="img/logo.svg" alt="PolySearch" />
     <p id="subtitle">Moteur de Recherche de fichiers PDF pour Android</p>
     <div id="button-container">
@@ -52,52 +54,59 @@
         <span class="mdc-button__label">Télécharger</span>
       </button>
     </div>
-    <h2 id="why">Pourquoi utiliser ceci au lieu de Ctrl + F</h2>
-    <ul>
-      <li>
-        PolySearch ne nécessite pas que la requête et le résultat soient
-        identiques
-      </li>
-      <li>PolySearch essaie de corriger les erreurs de grammaire</li>
-      <li>PolySearch peut rechercher plusieurs fichiers à la fois</li>
-    </ul>
-    <h2>Rechercher comme sur Google</h2>
+    <div id="information">
+      <h2 id="why">Pourquoi utiliser ceci au lieu de Ctrl + F</h2>
+      <ul>
+        <li>
+          PolySearch fonctionne sur n'importe quel pdf (Polycopiés, PDF
+          personnels, encyclopédies...)
+        </li>
+        <li>
+          PolySearch ne nécessite pas que la requête et le résultat soient
+          identiques
+        </li>
+        <li>PolySearch essaie de corriger les erreurs de grammaire</li>
+        <li>PolySearch peut rechercher plusieurs fichiers à la fois</li>
+      </ul>
+      <h2>Rechercher comme sur Google</h2>
 
-    <img id="screenshot" src="img/search_screenshot.jpg" alt="PolySearch" />
-    <h2 id="about">À Propos</h2>
-    <p class="about">
-      PolySearch est un moteur de recherche de PDF conçu dans le but d'organiser
-      des Polycopiés.
-    </p>
-    <p class="about">
-      Il utilise du code original et n'enfreint aucun droit d'auteur.
-      L'application ne partage pas et n'est pas accompagnée d'aucun document.
-    </p>
-    <p class="about">
-      Il est développé et maintenu par Iheb Chagra. Pour toute question sur
-      PolySearch, veuillez me contacter en utilisant les plates-formes suivants
-      :
-    </p>
-    <ul>
-      <li>
-        <b>E-mail : </b
-        ><a href="mailto:ihebchagra@gmail.com" target="_blank">
-          ihebchagra@gmail.com</a
-        >
-      </li>
-      <li>
-        <b>Messenger : </b>
-        <a href="https://m.me/iheb.chagra" target="_blank"> m.me/iheb.chagra</a>
-      </li>
-      <li>
-        <b>Instagram : </b>
-        <a href="https://www.instagram.com/ihebchagra/" target="_blank">
-          @ihebchagra</a
-        >
-      </li>
-    </ul>
+      <img id="screenshot" src="img/search_screenshot.jpg" alt="PolySearch" />
+      <h2 id="about">À Propos</h2>
+      <p class="about">
+        PolySearch est un moteur de recherche de PDF conçu dans le but
+        d'organiser des Polycopiés.
+      </p>
+      <p class="about">
+        Il utilise du code original et n'enfreint aucun droit d'auteur.
+        L'application ne partage pas et n'est pas accompagnée d'aucun document.
+      </p>
+      <p class="about">
+        Il est développé et maintenu par Iheb Chagra. Pour toute question sur
+        PolySearch, veuillez me contacter en utilisant les plates-formes
+        suivants :
+      </p>
+      <ul>
+        <li>
+          <b>E-mail : </b
+          ><a href="mailto:ihebchagra@gmail.com" target="_blank">
+            ihebchagra@gmail.com</a
+          >
+        </li>
+        <li>
+          <b>Messenger : </b>
+          <a href="https://m.me/iheb.chagra" target="_blank">
+            m.me/iheb.chagra</a
+          >
+        </li>
+        <li>
+          <b>Instagram : </b>
+          <a href="https://www.instagram.com/ihebchagra/" target="_blank">
+            @ihebchagra</a
+          >
+        </li>
+      </ul>
+    </div>
     <script>
-      mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
       function isFacebookBrowser() {
         const ua = navigator.userAgent || navigator.vendor;
         return (
@@ -108,8 +117,15 @@
       }
       if (isFacebookBrowser()) {
         $("#button-container").replaceWith(
-          '<p id="subtitle" style="color:red">Ouvrir page avec chrome pour télécharger</p>'
+          '<p id="warning" style="color:red">Ouvrir page avec chrome pour télécharger</p>'
         );
+        $("#information").hide();
+        $("#arrow").show();
+        $("#logo").hide();
+        $("#subtitle").hide();
+      } else {
+        $("#arrow").hide();
+        $("#information").show();
       }
     </script>
   </body>
