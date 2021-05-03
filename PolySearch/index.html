@@ -28,7 +28,7 @@
     <script>
       function downloadAPK() {
         window.location.href =
-          "https://drive.google.com/file/d/14n8eZfKRGkIgTtfkcMvNIb3TGGgAUKBn/view?usp=sharing";
+          "https://play.google.com/store/apps/details?id=com.polysearch";
       }
       mdc.ripple.MDCRipple.attachTo(document.querySelector(".download-button"));
     </script>
@@ -39,7 +39,6 @@
     ></script>
   </head>
   <body>
-    <img id="arrow" src="img/arrow.svg" alt="PolySearch" />
     <img id="logo" src="img/logo.svg" alt="PolySearch" />
     <p id="subtitle">Moteur de Recherche de fichiers PDF pour Android</p>
     <div id="button-container">
@@ -106,29 +105,5 @@
         </li>
       </ul>
     </div>
-    <script>
-      function isFacebookBrowser() {
-        const ua = navigator.userAgent || navigator.vendor;
-        return (
-          ua.indexOf("FBAN") > -1 ||
-          ua.indexOf("FBAV") > -1 ||
-          ua.indexOf("Instagram") > -1
-        );
-      }
-      if (isFacebookBrowser()) {
-        $("#button-container").replaceWith(
-          '<p id="warning" style="color:red">Ouvrir page avec chrome pour télécharger</p>'
-        );
-        $("#information").hide();
-        $("#arrow").show();
-        $("#logo").hide();
-        $("#subtitle").hide();
-      } else {
-        $("#arrow").hide();
-        $("#information").show();
-        $("#logo").show();
-        $("#subtitle").show();
-      }
-    </script>
   </body>
 </html>
