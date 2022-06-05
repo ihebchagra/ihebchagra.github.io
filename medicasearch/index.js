@@ -1,6 +1,7 @@
 function search(keyword) {
 	if(keyword.length<1)
 		return
+	keyword = keyword.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 	var results = []
 	for(var i in data){
 		data_fields=Object.keys(data[i])
@@ -42,25 +43,32 @@ function compareRelevance(a, b) {
 
 function outputResult(results){
 	document.getElementById("results").innerHTML="" 
-	for(var i in results){
-		var nom = document.createElement("h3");
-		nom.id = "nom";
-		nom.innerHTML = results[i]["Nom"];
-		document.getElementById("results").appendChild(nom); 
-		data_fields=Object.keys(data[i])
-		for(var u=0;u<data_fields.length;u++){
-			if(data_fields[u]=="Nom")
-				continue
-			if(results[i][data_fields[u]] == undefined)
-				continue
-			var propriete = document.createElement("div");
-			propriete.id="propriete"
-			propriete.innerHTML = "- <b>" + data_fields[u] + "</b> : " + results[i][data_fields[u]];
-			document.getElementById("results").appendChild(propriete); 
-			
+	if(results.length == 0) {
+		var notice = document.createElement("div");
+		notice.id = "notice";
+		notice.innerHTML = "Aucun résultat";
+		document.getElementById("results").appendChild(notice); 
+	} else {
+		for(var i in results){
+			var nom = document.createElement("h3");
+			nom.id = "nom";
+			nom.innerHTML = results[i]["Nom"];
+			document.getElementById("results").appendChild(nom); 
+			data_fields=Object.keys(data[i])
+			for(var u=0;u<data_fields.length;u++){
+				if(data_fields[u]=="Nom")
+					continue
+				if(results[i][data_fields[u]] == undefined)
+					continue
+				var propriete = document.createElement("div");
+				propriete.id="propriete"
+				propriete.innerHTML = "- <b>" + data_fields[u] + "</b> : " + results[i][data_fields[u]];
+				document.getElementById("results").appendChild(propriete); 
+				
+			}
+			var divider = document.createElement("hr");
+			document.getElementById("results").appendChild(divider); 
 		}
-		var divider = document.createElement("hr");
-		document.getElementById("results").appendChild(divider); 
 	}
 }
 
