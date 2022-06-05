@@ -1,0 +1,55 @@
+body {
+	font-size: 1em;
+	margin: 2em;
+	background-color: #e6e9ff;
+}
+
+#propriete {
+	color: #222222;
+}
+
+#query {
+	width: 60%;
+	height: 40px;
+	font-size: 18px;
+}
+#button {
+	height: 40px;
+}
+
+h1 {
+	color: #BD452F;
+}
+
+
+@media only screen and (max-width: 1000px) {
+	body {
+		margin: 2em;
+		background-color: #e6e9ff;
+	}
+	h1 {
+		color: #BD452F;
+		font-size: 4em;
+		text-align: center;
+	}
+	#query {
+		height: 2.1em;
+		font-size: 2em;
+		width: 55%;
+	}
+	#button {
+		height: 2.1em;
+		font-size: 2em;
+	}
+	#results {
+		height: 2.1em;
+		font-size: 2em;
+	}
+	hr {
+		margin: 1em;
+	}
+	#bar {
+		text-align: center;
+		padding-bottom: 1em;
+	}
+}
