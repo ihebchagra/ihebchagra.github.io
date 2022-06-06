@@ -76,3 +76,12 @@ function recherche(){
 	keyword = document.getElementById("query").value
 	outputResult(search(keyword))
 }
+
+
+var input = document.getElementById("query");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("button").click();
+  }
+});

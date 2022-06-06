@@ -1,7 +1,10 @@
+html {
+	background-color: #e6e9ff;
+}
+
 body {
 	font-size: 1em;
 	margin: 2em;
-	background-color: #e6e9ff;
 }
 
 #propriete {
@@ -29,11 +32,10 @@ h1 {
 @media only screen and (max-width: 1000px) {
 	body {
 		margin: 2em;
-		background-color: #e6e9ff;
 	}
 	h1 {
 		color: #BD452F;
-		font-size: 4em;
+		font-size: 3em;
 		text-align: center;
 	}
 	#query {
