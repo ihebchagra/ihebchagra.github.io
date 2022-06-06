@@ -35,21 +35,15 @@ h1 {
 	}
 	h1 {
 		color: #BD452F;
-		font-size: 3em;
+		font-size: 2em;
 		text-align: center;
 	}
 	#query {
 		height: 2.1em;
-		font-size: 2em;
 		width: 55%;
 	}
 	#button {
 		height: 2.1em;
-		font-size: 2em;
-	}
-	#results {
-		height: 2.1em;
-		font-size: 2em;
 	}
 	hr {
 		margin: 1em;
