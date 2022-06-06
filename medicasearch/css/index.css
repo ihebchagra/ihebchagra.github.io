@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	font-size: 1em;
+	font-size: 0.8em;
 	margin: 2em;
 }
 
@@ -13,11 +13,11 @@ body {
 
 #query {
 	width: 60%;
-	height: 40px;
-	font-size: 18px;
+	height: 30px;
+	font-size: 14px;
 }
 #button {
-	height: 40px;
+	height: 30px;
 }
 
 h1 {
@@ -28,10 +28,14 @@ h1 {
 	padding-top: 3em;
 }
 
+a {
+	color: black;
+}
+
 
 @media only screen and (max-width: 1000px) {
 	body {
-		margin: 1em;
+		margin: 0.8em;
 	}
 	h1 {
 		color: #BD452F;
@@ -39,14 +43,14 @@ h1 {
 		text-align: center;
 	}
 	#query {
-		height: 2.1em;
+		height: 2em;
 		width: 55%;
 	}
 	#button {
-		height: 2.1em;
+		height: 2em;
 	}
 	hr {
-		margin: 1em;
+		margin: 5px;
 	}
 	#bar {
 		text-align: center;
