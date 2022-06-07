@@ -80,10 +80,13 @@ function outputResult(results){
 			var nameid= hashCode(resultstring);
 			if(document.getElementById(nameid) != null)
 				continue
+			var name = results[i]["Spécialité"]
 			if(data_fields.includes("Dosage"))
-				var name= results[i]["Spécialité"] + ' ' + results[i]["Dosage"];
-			else
-				var name= results[i]["Spécialité"];
+				name+= ' ' + results[i]["Dosage"];
+			if(data_fields.includes("Forme"))
+				name+= ' ' + results[i]["Forme"];
+			if(data_fields.includes("Présentation"))
+				name+= ' ' + results[i]["Présentation"];
 			var section = document.createElement("div");
 			section.id = nameid;
 			document.getElementById("results").appendChild(section); 
