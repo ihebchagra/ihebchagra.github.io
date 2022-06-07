@@ -16,8 +16,8 @@ body {
 	height: 30px;
 	font-size: 14px;
 }
-#button {
-	height: 30px;
+#button, #showall {
+	height: 30px!important;
 }
 
 h1 {
@@ -31,7 +31,16 @@ h1 {
 a {
 	color: black;
 }
-
+u {
+	color: gray;
+}
+#afficher {
+	border: none;
+	background-color: inherit;
+	cursor: pointer;
+	display: inline-block;
+	color: gray;
+}
 
 @media only screen and (max-width: 1000px) {
 	body {
