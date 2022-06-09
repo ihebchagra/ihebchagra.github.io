@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Pharmacoteract</title>
+	<script src="main.js" type="text/javascript"></script>
+	<link rel="manifest" href="./manifest.json">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/index.css" type="text/css">
+	<script src="js/interactions.js" type="text/javascript"></script>
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+
+<body>
+	<h1>Pharmacoteract</h1>
+	<div class="notice">Pharmacoteract est un outil pour vérifier les intéraction médicamenteuses. Choisir au moins une substance.</div>
+	<div id='substances'>
+	</div>
+	<div id="buttons">
+		<input id="add" type="button" value="Ajouter une autre substance" onclick="makeMenu()"></input>
+		<input id="verify" type="button" value="Vérifier les Intéractions" onclick="verify()"></input>
+	</div>
+	<div id='results'>
+	</div>
+	<script src="js/index.js" type="text/javascript"></script>
+</body>

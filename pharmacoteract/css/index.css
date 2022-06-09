@@ -1,0 +1,48 @@
+html {
+	background-color: #fadeba;
+}
+
+body {
+	margin: 1em;
+	font-size: 16px;
+}
+
+.effet, .indication, .notice, label{
+	font-size: 14px;
+}
+
+.substance {
+	width: 70%;
+	margin-bottom: 5px;
+}
+#substances {
+	margin-top: 5px;
+}
+#buttons {
+	margin-top: 5px;
+}
+
+h1 {
+	color: #3d5c99;
+}
+
+#add, #verify {
+}
+
+#results {
+	margin-top: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+	body {
+		margin: 10px;
+		font-size: 0.9em;
+	}
+	.effet, .indication {
+		font-size: 0.85em;
+	}
+	h1 {
+		text-align: center;
+	}
+	
+}
