@@ -1,0 +1,54 @@
+html {
+	background-color: black;
+}
+
+body {
+	color: #ffffff;
+	font-family: "serif";
+	font-size: 12px;
+}
+
+a {
+	color: #efefef;
+}
+
+.title {
+	text-align:center;
+}
+
+.list{
+	margin-top:1em;
+}
+
+.content{
+	margin-top:5em;
+}
+
+.text {
+	margin-top:5em;
+	margin-left:5px;
+	width: 60%;
+	float:left;
+}
+
+.image {
+	width: 30%;
+	margin-right:5%;
+	float:right;
+}
+
+@media only screen and (max-width: 1000px) {
+	.image {
+		align:center;
+		float:none;
+		width: 90%;
+	}
+	.text {
+		width: 90%;
+		margin-top:3em;
+		float:none;
+		margin-right:none;
+		margin-bottom:2em;
+	}
+
+}
