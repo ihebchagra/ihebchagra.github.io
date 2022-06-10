@@ -75,7 +75,7 @@ function verify(){
 
 					var div = document.createElement("div");
 					div.setAttribute("class","interaction")
-					div.innerHTML = "<b>"+data[i]["interactions"][j]["substance"]+"</b>"
+					div.innerHTML = "<b>"+toTitleCase(data[i]["interactions"][j]["substance"])+"</b>"
 					results.appendChild(div)
 
 					var div = document.createElement("div");
