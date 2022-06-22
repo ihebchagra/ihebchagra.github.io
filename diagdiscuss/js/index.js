@@ -188,7 +188,7 @@ function search(){
 		}	
 
 		//filter out by sex
-		if( (data[initial_matches[i]]['sex']!="1") && (data[initial_matches[i]]['sex'].length==1) ){
+		if( (data[initial_matches[i]]['sex']!="1") && (data[initial_matches[i]]['sex'].length==1) && (data[initial_matches[i]]['sex']!=sex) ){
 			continue
 		}
 
