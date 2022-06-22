@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>DiagDiscuss</title>
+	<script src="main.js" type="text/javascript"></script>
+	<link rel="manifest" href="./manifest.json">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/index.css" type="text/css">
+	<script src="js/database.js" type="text/javascript"></script>
+	<script src="js/arguments.js" type="text/javascript"></script>
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+
+<body>
+	<h1>DiagDiscuss</h1>
+	<div class="notice">DiagDiscuss est un outil de génération de diagnostics différentiels par calcul de probabilité.</div>
+
+	<div id="patient_details">
+		<div><b>Détails du patient:</b></div>
+		<div class='age_div'>
+			<label for='age_field'>Age : </label>
+			<select name='age_field' class='age_select'>
+				<option value=1>&lt;1an</option>
+				<option value=2>5-6</option>
+				<option value=3>6-15</option>
+				<option value=4>16-29</option>
+				<option value=5>30-39</option>
+				<option value=6>40-49</option>
+				<option value=7 selected=true>50-59</option>
+				<option value=8>60-69</option>
+				<option value=9>70-79</option>
+				<option value=10>80+</option>
+			</select>
+		</div>
+		<div class='sex_div'>
+			<label for='sex_field'>Sex : </label>
+			<select name='sex_field' class='sex_select'>
+				<option value='M'>M</option>
+				<option value='F' selected=true>F</option>
+			</select>
+		</div>
+		<div class='duree_div'>
+			<label for='duree_field'>Histoire : </label>
+			<select name='duree_field' class='duree_select'>
+				<option value=1>Minutes</option>
+				<option value=2>Heures</option>
+				<option value=3 selected=true>Jours</option>
+				<option value=4>Semaines</option>
+			</select>
+		</div>
+	</div>
+	<div id="symptomes">
+		<div><b>Symptomes : </b></div>
+		<div class="autocomplete">
+			<input id="searchField" type="text" placeholder="Chercher un symptôme"></input>
+		</div>
+		<input id="present_button" type="submit" value="Présent" onclick="add_symptome(true)"></input>
+		<input id="absent_button" type="submit" value="Absent" onclick="add_symptome(false)"></input>
+		<div id="arguments">
+		</div>
+	</div>
+	<div id="buttons">
+		<input id="generate" type="button" value="Générer des Diagnostics" onclick="search()"></input>
+	</div>
+
+	<div id="results">
+	</div>
+
+	<script src="js/index.js" type="text/javascript"></script>
+</body>

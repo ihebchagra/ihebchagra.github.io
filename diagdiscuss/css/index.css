@@ -1,0 +1,111 @@
+html {
+	background-color: #dbc4db;
+}
+
+body {
+	margin: 1em;
+	font-size: 16px;
+}
+
+h1 {
+	color: #9d0000;
+}
+
+.argDiv{
+	font-size: 14px;
+}
+
+.age_div, .sex_div, .duree-div{
+	float:left;
+	margin-right: 5px;
+}
+
+a{
+	color:#505050;
+	margin-left: 5px;
+	
+}
+
+#symptomes{
+	margin-bottom: 8px;
+}
+
+#arguments{
+	margin-top: 3px;
+}
+
+.remove{
+	margin-left: 8px;
+	height: 90%;
+}
+
+#searchField {
+	width:98%;
+	height: 90%;
+}
+
+#patient_details{
+	margin-top: 8px;
+	margin-bottom: 3px;
+}
+
+#buttons{
+	margin-bottom: 8px;
+}
+
+#present_button, #absent_button{
+	padding-right: 1px;
+	padding-left: 1px;
+}
+
+.autocomplete {
+	/*the container must be positioned relative:*/
+	position: relative;
+	display: inline-block;
+	width:30%;
+}
+
+.autocomplete-items {
+	background-color:white;
+	color:black;
+	position: absolute;
+	border-bottom: none;
+	border-top: none;
+	padding-left: 3px;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 0;
+	right: 0;
+}
+.autocomplete-items div {
+/**/
+}
+
+.autocomplete-items div:hover {
+	/*when hovering an item:*/
+	background-color:gray;
+}
+
+.autocomplete-active {
+	/*when navigating through the items using the arrow keys:*/
+	background-color:gray;
+}
+@media only screen and (max-width: 1000px) {
+	body {
+		margin: 10px;
+		font-size: 0.9em;
+	}
+	h1 {
+		text-align: center;
+	}
+	#buttons{
+		text-align:center;
+	}
+	.autocomplete {
+		/*the container must be positioned relative:*/
+		position: relative;
+		display: inline-block;
+		width:auto;
+	}
+}
