@@ -219,6 +219,7 @@ function search(){
 
 	if( (args.includes("Tout Symptôme")) && (args.length==1) ){
 		initial_matches=pathologies
+		args=[]
 	} else {
 		for(var i=0;i<pathologies.length;i++){
 			if(data[pathologies[i]]['arguments'][args[0]]!=undefined){
