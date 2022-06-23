@@ -1,6 +1,59 @@
 function print_results(result_list){
 	results_element=document.getElementById('results')
 	results_element.innerHTML = ""
+	//easter egg
+	if(result_list=="mort"){
+		results_element.innerHTML = "La personne la plus âgée du monde a 112 ans."
+		var val="Décès"
+		id="res" + val.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\ /g,'')
+
+		var hr = document.createElement("hr");
+		results_element.appendChild(hr)
+
+		var div = document.createElement("div");
+		div.setAttribute("id",id)
+		div.setAttribute("class","resultDiv")
+		results_element.appendChild(div)
+		var resultDiv = document.getElementById(id)
+		
+		//title
+		var div = document.createElement("div");
+		div.setAttribute("id",id + "title")
+		div.setAttribute("class","titleDiv")
+		resultDiv.appendChild(div)
+		var titleDiv = document.getElementById(id + "title")
+
+		var span = document.createElement("span");
+		span.innerText = "- " 
+		titleDiv.appendChild(span)
+		
+		var strong = document.createElement("strong");
+		strong.innerText = val 
+		titleDiv.appendChild(strong)
+
+		var a = document.createElement("a");
+		a.innerText="[+]"
+		a.setAttribute("onclick",'toggle_args(this,"show")')
+		titleDiv.appendChild(a)
+		
+		//arguments
+		var div = document.createElement("div");
+		div.setAttribute("id",id + "args")
+		div.setAttribute("class","argDiv")
+		resultDiv.appendChild(div)
+		var argDiv = document.getElementById(id + "args")
+
+		arg_names="Votre patient est mort"
+		var div = document.createElement("div");
+		div.innerText = "- " + arg_names + " : " + "100" + "%"
+		argDiv.appendChild(div)
+
+		argDiv.hidden=true
+
+		var hr = document.createElement("hr");
+		resultDiv.appendChild(hr)
+		return
+	}
 	if(results.length==0){
 		results_element.innerHTML = "Aucun diagnostic trouvé dans cette base de données"
 		return
@@ -89,29 +142,30 @@ function toggle_args(element,type){
 
 function generate_suggestions(list){
 	obj={}
+	banned=[]
 	args = get_args()
 	nargs = get_nargs()
 	for(var i=0;i<list.length;i++){
 		for(var j=0;j<Object.keys(data[list[i]]['arguments']).length;j++){
 			arg=Object.keys(data[list[i]]['arguments'])[j]
-			if ((args.includes(arg)) || (nargs.includes(arg)) || (arg.includes("Caractéristiques"))){	
+			if ((args.includes(arg)) || (nargs.includes(arg)) || (arg.substring(0,9)=="Symptômes") ){	
 				continue
 			}
 			value=data[list[i]]['arguments'][arg] * 1
-			if (obj[arg]==undefined){
+			if ( (obj[arg]==undefined) && (!banned.includes(arg)) ){
 				obj[arg]=value
-			} else if (value>obj[arg]){
-				obj[arg]=value
+			} else {
+				delete obj[arg]
+				banned.push(arg)
 			}
 		}
 	}
 	obj_keys = Object.keys(obj)
 	suggest = []
 	for(var i=0;i<obj_keys.length;i++){
-		if(suggest.length<5){
+		if(suggest.length<1){
 			suggest.push(obj_keys[i])
-		}
-		if(suggest.length>4){
+		} else {
 			suggest.push(obj_keys[i])
 			suggest = suggest.sort(function compareFn(a, b) {
 				a_value=obj[a]
@@ -123,7 +177,9 @@ function generate_suggestions(list){
 				if (b_value==a_value)
 					return 0
 			})
-			suggest.pop()
+			if (suggest.length>4){
+				suggest.pop()
+			}
 		}
 	}
 	
@@ -133,15 +189,6 @@ function generate_suggestions(list){
 const pathologies = Object.keys(data)
 function search(){
 	args = get_args()
-	if(args.length==0){
-		var results_element=document.getElementById('results')
-		var span = document.createElement("span");
-		span.innerText = "Choisir au moins un symptôme qui est présent" 
-		results_element.innerHTML = ""
-		results_element.appendChild(span)
-		return
-	}
-
 	nargs = get_nargs()
 	age = document.querySelectorAll('.age_select')[0].value 
 	onset = document.querySelectorAll('.duree_select')[0].value 
@@ -151,11 +198,34 @@ function search(){
 	results = []
 	scores = []
 
-	for(var i=0;i<pathologies.length;i++){
-		if(data[pathologies[i]]['arguments'][args[0]]!=undefined){
-			initial_matches.push(pathologies[i])
-		}
-	}	
+	//easter egg
+	if(age==11){
+		print_results("mort")
+		return
+	}
+	if( (args.includes("Tout Symptôme")) && (args.length>1) ){
+		args.splice(args.indexOf("Tout Symptôme"),1)
+	}
+
+	if(args.length==0){
+		var results_element=document.getElementById('results')
+		var span = document.createElement("span");
+		span.innerText = "Choisir au moins un symptôme qui est présent" 
+		results_element.innerHTML = ""
+		results_element.appendChild(span)
+		return
+	}
+
+
+	if( (args.includes("Tout Symptôme")) && (args.length==1) ){
+		initial_matches=pathologies
+	} else {
+		for(var i=0;i<pathologies.length;i++){
+			if(data[pathologies[i]]['arguments'][args[0]]!=undefined){
+				initial_matches.push(pathologies[i])
+			}
+		}	
+	}
 
 	//filter out useless stuff
 	for(var i=0;i<initial_matches.length;i++){
