@@ -1,0 +1,55 @@
+html {
+	background-color: #F1F1F1;
+}
+
+body {
+	margin: 1em;
+	font-size: 16px;
+}
+
+h1 {
+	color: #1E1E1E;
+}
+
+#searchField{
+	margin-top: 8px;
+	width : 50%
+}
+
+#optionDiv {
+	margin-top: 8px;
+	margin-bottom: 20px;
+}
+
+.excerpt{
+	font-size: 14px;
+	color:#404040;
+	width: 70%;
+	padding-bottom: 1em;
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+@media only screen and (max-width: 1000px) {
+	body {
+		margin: 10px;
+		font-size: 0.9em;
+	}
+	#searchField{
+		width : 60%
+	}
+	.excerpt{
+		font-size: 0.85em;
+		width: 100%
+	}
+	h1 {
+		text-align: center;
+	}
+	#searchDiv, #optionDiv{
+		margin-top: 8px;
+		text-align:center;
+	}
+}

@@ -54,11 +54,11 @@ function print_results(result_list){
 		resultDiv.appendChild(hr)
 		return
 	}
-	if(results.length==0){
+	if(result_list.length==0){
 		results_element.innerHTML = "Aucun diagnostic trouvé dans cette base de données"
 		return
 	}
-	if(results.length>1){
+	if(result_list.length>1){
 		suggest = generate_suggestions(result_list)
 		results_element.innerHTML = "Diagnostics trouvés dans cette base de données classés du plus probable au moins probable. Vous pouvez affiner davantage les diagnostics en spécifiant la présence/absence de ces symptômes : <i>" + suggest.join(', ') + "</i>."
 	}
