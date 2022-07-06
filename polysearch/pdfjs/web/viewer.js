@@ -30,7 +30,7 @@ function highlight_query(){
 	regexText=query.toLowerCase()
 			.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 			.replace(/(\w)s\b/g, '$1 ')
-			.replace(/['\\#{}\[\]-_\(\)`"]/g,' ')
+			.replace(/['\\#{}\[\]-_\(\)`"\.\+\*]/g,' ')
 			.replace(/\b(de|du|[a-z]{1}\b|la|le|un|leur)\b/g,' ')
 			.replace(/\s+/g, ' ').trim()
 			.replace(/oe/g,".{1,2}")

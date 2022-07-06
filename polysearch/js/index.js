@@ -133,10 +133,18 @@ function search(){
 		case "all":
 			obj = {
 				...courscommuns,
+				...pcem1
+				...pcem2
+				...dcem1
 				...dcem2
+				...dcem3
 			}
 			titles = {
+				...pcem1_titres
+				...pcem2_titres
+				...dcem1_titres
 				...dcem2_titres
+				...dcem3_titres
 			}
 			switch(certif){
 				case "Thème 16":
@@ -259,7 +267,7 @@ function search(){
 	regexText=query.toLowerCase()
 			.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 			.replace(/(\w)s\b/g, '$1 ')
-			.replace(/['\\#{}\[\]-_\(\)`"]/g,' ')
+			.replace(/['\\#{}\[\]-_\(\)`"\.\+\*]/g,' ')
 			.replace(/\b(de|du|[a-z]{1}\b|la|le|un|leur)\b/g,' ')
 			.replace(/\s+/g, ' ').trim()
 			.replace(/oe/g,".{1,2}")
