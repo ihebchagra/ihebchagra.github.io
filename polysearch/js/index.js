@@ -133,17 +133,17 @@ function search(){
 		case "all":
 			obj = {
 				...courscommuns,
-				...pcem1
-				...pcem2
-				...dcem1
-				...dcem2
+				...pcem1,
+				...pcem2,
+				...dcem1,
+				...dcem2,
 				...dcem3
 			}
 			titles = {
-				...pcem1_titres
-				...pcem2_titres
-				...dcem1_titres
-				...dcem2_titres
+				...pcem1_titres,
+				...pcem2_titres,
+				...dcem1_titres,
+				...dcem2_titres,
 				...dcem3_titres
 			}
 			switch(certif){
