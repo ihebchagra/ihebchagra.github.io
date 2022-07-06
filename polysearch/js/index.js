@@ -187,7 +187,7 @@ function search(){
 			break;
 		case "PCEM2":
 			obj = pcem2
-			titles = dcem2_titres
+			titles = pcem2_titres
 			switch(certif){
 				case "Thème 16":
 					files = ["Thème 16 T1","Thème 16 T2"]
@@ -205,7 +205,7 @@ function search(){
 			break;
 		case "DCEM1":
 			obj = dcem1
-			titles = dcem2_titres
+			titles = dcem1_titres
 			switch(certif){
 				case "Cardiologie":
 					files = ["Cardiologie T1","Cardiologie T2"]
@@ -241,7 +241,7 @@ function search(){
 			break;
 		case "DCEM3":
 			obj = dcem3
-			titles = dcem2_titres
+			titles = dcem3_titres
 			switch(certif){
 				case "Gynécologie":
 					files = ["Gynécologie T1","Gynécologie T2"]
