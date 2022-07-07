@@ -424,7 +424,7 @@ function search(){
 	print_results(results)
 }
 
-document.getElementById("niveau_select").value = getCookie("niveau")
+document.getElementById("niveau_select").value = getCookie("niveau") || "all"
 updateCertif(document.getElementById("niveau_select").value)
 
 var input = document.getElementById("searchField");
