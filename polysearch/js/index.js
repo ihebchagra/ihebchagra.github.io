@@ -26,6 +26,29 @@ function hashCode(string){
     return hash;
 }
 
+function setCookie(cname, cvalue, exdays) {
+	const d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	let expires = "expires="+ d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+} 
+
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for(let i = 0; i <ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+} 
+
 function print_results(result_list){
 	results_element=document.getElementById('resultsDiv')
 	results_element.innerHTML = ""
@@ -99,6 +122,7 @@ function updateCertif(val){
 			}
 			break;
 	}
+	setCookie("niveau",val,30)
 }
 
 function titleCase (str) {
@@ -266,6 +290,7 @@ function search(){
 			break;
 	}
 
+
 	regexText=query.toLowerCase()
 			.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 			.replace(/(\w)s\b/g, '$1 ')
@@ -280,6 +305,29 @@ function search(){
 			.replace(/i/g,"[ïi]")
 			.replace(/c/g,"[çc]")
 			.replace(/u/g,"[uù]")
+
+	necessaryText=query.toLowerCase()
+			.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+			.replace(/['\\#{}\[\]-_\(\)`\.\+\*]/g,' ')
+			.replace(/\s+/g, ' ').trim()
+			.replace(/e/g,"[éèêe]")
+			.replace(/a/g,"[àa]")
+			.replace(/i/g,"[ïi]")
+			.replace(/c/g,"[çc]")
+			.replace(/u/g,"[uù]")
+	necessary = []
+	quotere = /"/g 
+	quotes = [...necessaryText.matchAll(quotere)] 
+	necessary_num = Math.floor(quotes.length / 2) 
+	if (necessary_num > 0){
+		for (var i=0;i<necessary_num;i++){
+			word = necessaryText.substring(quotes[(i*2)].index+1,quotes[(i*2)+1].index) 
+			if (word.length>0){
+				necessary.push(word)
+			}
+		}
+	}
+
 	if (regexText.length==""){
 		results = []
 		print_results(results)
@@ -297,8 +345,6 @@ function search(){
 			matches = obj[files[i]][j].match(re)
 			if(matches != null){
 				n+=1
-				//excerpt
-				excerpt = makeExcerpt(obj[files[i]][j],matches)
 				//title
 				if((titles!=null) && (Object.keys(titles).includes(files[i]))){
 					var title = "Plan"
@@ -310,6 +356,27 @@ function search(){
 					}
 					title = titleCase(title)
 				}
+				// eliminate results not containing necessary words
+				discarded = false
+				for (var y=0;y<necessary.length;y++){
+					necessary_re = new RegExp( "\\b" + necessary[y] + "\\b" ,"gi")
+					if (obj[files[i]][j].search(necessary_re) == -1){
+						if (title!=undefined){
+							if (title.search(necessary_re) == -1){
+								discarded = true
+								break
+							}
+						} else {
+							discarded = true
+							break
+						}
+					}
+				}
+				if(discarded){
+					continue
+				}
+				//excerpt
+				excerpt = makeExcerpt(obj[files[i]][j],matches)
 				//page
 				page=j+1
 				//niveau
@@ -357,7 +424,7 @@ function search(){
 	print_results(results)
 }
 
-
+document.getElementById("niveau_select").value = getCookie("niveau")
 updateCertif(document.getElementById("niveau_select").value)
 
 var input = document.getElementById("searchField");
