@@ -43,6 +43,8 @@ function print_results(result_list){
 		var a = document.createElement("a");
 		a.setAttribute("id",id)
 		a.setAttribute("class","resultDiv")
+		a.setAttribute("target","_blank")
+		a.setAttribute("rel","noopener noreferrer")
 		a.href="./pdfjs/web/viewer.html?file=../../pdf/" + entry[0] + ".pdf&q=" + query + "#page=" + entry[1]; 
 		results_element.appendChild(a)
 		var resultA = document.getElementById(id)
