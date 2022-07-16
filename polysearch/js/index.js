@@ -26,10 +26,14 @@ function hashCode(string){
     return hash;
 }
 
+
 function setCookie(cname, cvalue, exdays) {
 	const d = new Date();
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	let expires = "expires="+ d.toUTCString();
+	if (Array.isArray(cvalue)){
+		cvalue = JSON.stringify(cvalue);
+	}
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 } 
 
@@ -43,7 +47,17 @@ function getCookie(cname) {
 			c = c.substring(1);
 		}
 		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
+			c = c.substring(name.length, c.length);
+			try {
+				array_c = JSON.parse(c)
+			} catch {
+				return c
+			}
+			if(Array.isArray(array_c)){
+				return array_c
+			} else {
+				return c
+			}
 		}
 	}
 	return "";
@@ -66,7 +80,7 @@ function print_results(result_list){
 		var a = document.createElement("a");
 		a.setAttribute("id",id)
 		a.setAttribute("class","resultDiv")
-		a.setAttribute("target","_blank")
+		//a.setAttribute("target","_blank")
 		a.setAttribute("rel","noopener noreferrer")
 		a.href="./pdfjs/web/viewer.html?file=../../pdf/" + entry[0] + ".pdf&q=" + query + "#page=" + entry[1]; 
 		results_element.appendChild(a)
@@ -424,9 +438,70 @@ function search(){
 	print_results(results)
 }
 
-document.getElementById("niveau_select").value = getCookie("niveau") || "all"
+function buttonPress(){
+	//history management
+	hlist = getCookie("PShistory")
+	if (hlist.length == 0)
+		hlist = []
+
+	query = document.getElementById("searchField").value
+	niveau = document.getElementById("niveau_select").value
+	certif = document.getElementById("certif_select").value
+	
+	hlist.unshift([query,niveau,certif])
+	if (hlist.length>50)
+		hlist.pop()
+	setCookie("PShistory",hlist,30)
+
+	url = new URL(window.location.href)
+	document.title = query + ' - Polysearch';
+	uquery = url.searchParams.get("q");
+	url.searchParams.set("q",query)
+	url.searchParams.set("n",niveau)
+	url.searchParams.set("c",certif)
+	if (uquery==null){
+		history.replaceState(null, query + ' - Polysearch', url.href);
+	} else {
+		history.pushState(null, query + ' - Polysearch', url.href);
+	}
+
+	search()
+}
+
+function initSearch(){
+	url = new URL(window.location.href)
+	uquery = url.searchParams.get("q");
+	if (uquery!=null){
+		document.title = uquery + ' - Polysearch';
+		document.getElementById("searchField").value = uquery
+		search()
+	}
+}
+
+
+// init
+
+
+url = new URL(window.location.href)
+
+univeau = url.searchParams.get("n");
+if (univeau!=null){
+	document.getElementById("niveau_select").value = univeau
+} else {
+	document.getElementById("niveau_select").value = getCookie("niveau") || "all"
+}
 updateCertif(document.getElementById("niveau_select").value)
 
+
+ucertif = url.searchParams.get("c");
+if (ucertif!=null){
+	document.getElementById("certif_select").value = ucertif
+}
+
+initSearch()
+
+
+//events
 var input = document.getElementById("searchField");
 input.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
@@ -434,3 +509,8 @@ input.addEventListener("keypress", function(event) {
     document.getElementById("searchButton").click();
   }
 });
+
+window.onpopstate = function(event) {
+	event.preventDefault();
+	initSearch()
+};

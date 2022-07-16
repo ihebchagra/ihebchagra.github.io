@@ -1,14 +1,15 @@
 html {
-	background-color: #dbc4db;
+	background-color: #ddc5e8;
 }
 
 body {
 	margin: 1em;
 	font-size: 16px;
+	font-family: "serif"
 }
 
 h1 {
-	color: #9d0000;
+	color: #ac0505;
 }
 
 .argDiv{
@@ -52,6 +53,9 @@ a{
 #buttons{
 	margin-bottom: 8px;
 }
+#present_button{
+	margin-left: 5px;
+}
 
 #present_button, #absent_button{
 	padding-right: 1px;
@@ -91,6 +95,16 @@ a{
 	/*when navigating through the items using the arrow keys:*/
 	background-color:gray;
 }
+
+#header {
+	font-size:12px;	
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
 @media only screen and (max-width: 1000px) {
 	body {
 		margin: 10px;
@@ -110,5 +124,9 @@ a{
 		position: relative;
 		display: inline-block;
 		width:auto;
+	}
+	#header {
+		text-align:center;
+		font-size:0.8em;	
 	}
 }

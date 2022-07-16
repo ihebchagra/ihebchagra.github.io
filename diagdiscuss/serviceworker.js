@@ -8,12 +8,16 @@ self.addEventListener('install', function(e) {
         caches.open(cacheName).then(function(cache) {
             return cache.addAll([
                 './',
+                './index.html',
+                './faq.html',
                 './main.js',
                 './css/index.css',
+                './css/faq.css',
                 './img/favicon.ico',
                 './js/index.js',
                 './js/arguments.js',
                 './js/database.js',
+                './js/darkmode.js',
             ]).then(function() {
                 self.skipWaiting();
             });

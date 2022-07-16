@@ -8,10 +8,17 @@ self.addEventListener('install', function(e) {
         caches.open(cacheName).then(function(cache) {
             return cache.addAll([
                 './',
+                './index.html',
+                './history.html',
+                './faq.html',
                 './main.js',
                 './css/index.css',
+                './css/history.css',
+                './css/faq.css',
                 './img/favicon.ico',
                 './js/index.js',
+                './js/history.js',
+                './js/darkmode.js',
                 './js/courscommuns.js',
                 './js/pcem1.js',
                 './js/pcem1_titres.js',

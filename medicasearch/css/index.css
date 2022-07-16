@@ -1,68 +1,112 @@
 html {
-	background-color: #e6e9ff;
+	background-color: #D1DAEE;
 }
 
 body {
-	font-size: 0.8em;
-	margin: 2em;
+	margin: 1em;
+	font-size: 16px;
+	font-family: serif;
 }
 
-#propriete {
-	color: #222222;
-}
-
-#query {
-	width: 60%;
-	height: 30px;
+.propriete {
 	font-size: 14px;
 }
-#button, #showall {
-	height: 30px!important;
+
+#header {
+	font-size:12px;	
+}
+
+#query{
+	width:98%;
+}
+#bar {
+	margin-top: 1em;
+	margin-bottom: 1.5em;
+	display:flex;
+}
+
+.data{
+	margin-top:5px
 }
 
 h1 {
-	color: #BD452F;
+	color: #771818;
 }
 
-#notice {
-	padding-top: 3em;
+.show {
+	color: #1E1E1E;
+	margin-left:5px;
 }
 
-a {
-	color: black;
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: inherit;
 }
-u {
-	color: gray;
-}
-#afficher {
-	border: none;
-	background-color: inherit;
-	cursor: pointer;
+
+.autocomplete {
+	/*the container must be positioned relative:*/
+	position: relative;
 	display: inline-block;
-	color: gray;
+	width:50%;
+}
+
+#buttons {
+	display: inline-block;
+}
+
+#button{
+	margin-left: 8px;
+}
+
+.autocomplete-items {
+	text-align: left;
+	background-color:white;
+	color:black;
+	position: absolute;
+	border-bottom: none;
+	border-top: none;
+	padding-left: 3px;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 0;
+	right: 0;
+	overflow-wrap: break-word;
+}
+.autocomplete-items div {
+/**/
+}
+
+.autocomplete-items div:hover {
+	/*when hovering an item:*/
+	background-color:gray;
+}
+
+.autocomplete-active {
+	/*when navigating through the items using the arrow keys:*/
+	background-color:gray;
 }
 
 @media only screen and (max-width: 1000px) {
+	#header {
+		text-align:center;
+		font-size:0.8em;	
+	}
 	body {
-		margin: 0.8em;
+		margin: 10px;
+		font-size: 0.9em;
 	}
 	h1 {
-		color: #BD452F;
-		font-size: 2em;
 		text-align: center;
-	}
-	#query {
-		height: 2em;
-		width: 55%;
-	}
-	#button {
-		height: 2em;
-	}
-	hr {
-		margin: 5px;
 	}
 	#bar {
 		text-align: center;
-		padding-bottom: 1em;
+	}
+	.propriete {
+		font-size: 0.85em;
+	}
+
+	.autocomplete {
+		width:auto;
 	}
 }

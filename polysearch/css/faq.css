@@ -8,29 +8,12 @@ body {
 	font-family: serif;
 }
 
-h1 {
+h1, h3 {
 	color: #1E1E1E;
 }
 
 #header {
 	font-size:12px;	
-}
-
-#searchField{
-	margin-top: 8px;
-	width : 50%
-}
-
-#optionDiv {
-	margin-top: 8px;
-	margin-bottom: 20px;
-}
-
-.excerpt{
-	font-size: 14px;
-	color:#404040;
-	width: 70%;
-	padding-bottom: 1em;
 }
 
 a, a:hover, a:focus, a:active {
@@ -47,18 +30,9 @@ a, a:hover, a:focus, a:active {
 		margin: 10px;
 		font-size: 0.9em;
 	}
-	#searchField{
-		width : 60%
-	}
-	.excerpt{
-		font-size: 0.85em;
-		width: 100%
-	}
 	h1 {
 		text-align: center;
 	}
-	#searchDiv, #optionDiv{
-		margin-top: 8px;
-		text-align:center;
-	}
 }
+
+

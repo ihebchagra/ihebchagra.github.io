@@ -1,10 +1,11 @@
 html {
-	background-color: #fadeba;
+	background-color: #ffefdb;
 }
 
 body {
 	margin: 1em;
 	font-size: 16px;
+	font-family: "serif"
 }
 
 .effet, .indication, .notice, label{
@@ -12,7 +13,6 @@ body {
 }
 
 .substance {
-	width: 70%;
 	margin-bottom: 5px;
 }
 #substances {
@@ -23,15 +23,60 @@ body {
 }
 
 h1 {
-	color: #3d5c99;
+	color: #4f184e;
 }
 
-#add, #verify {
-}
 
 #results {
 	margin-top: 10px;
 }
+
+#header {
+	font-size:12px;	
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+.autocomplete {
+	/*the container must be positioned relative:*/
+	position: relative;
+	display: inline-block;
+	width:auto;
+	margin-left:3px;
+	margin-right:3px;
+}
+
+.autocomplete-items {
+	background-color:white;
+	color:black;
+	position: absolute;
+	border-bottom: none;
+	border-top: none;
+	padding-left: 3px;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 0;
+	right: 0;
+}
+.autocomplete-items div {
+/**/
+}
+
+.autocomplete-items div:hover {
+	/*when hovering an item:*/
+	background-color:gray;
+}
+
+.autocomplete-active {
+	/*when navigating through the items using the arrow keys:*/
+	background-color:gray;
+}
+
 
 @media only screen and (max-width: 1000px) {
 	body {
@@ -41,8 +86,19 @@ h1 {
 	.effet, .indication {
 		font-size: 0.85em;
 	}
+
+	#header {
+		text-align:center;
+		font-size:0.8em;	
+	}
 	h1 {
 		text-align: center;
+	}
+	.autocomplete {
+		/*the container must be positioned relative:*/
+		position: relative;
+		display: inline-block;
+		width:auto;
 	}
 	
 }

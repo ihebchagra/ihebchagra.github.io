@@ -1,0 +1,45 @@
+html {
+	background-color: #ffefdb;
+}
+
+body {
+	margin: 1em;
+	font-size: 16px;
+	font-family: serif;
+}
+
+h1 {
+	color: #4f184;
+}
+
+#header {
+	font-size:12px;	
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+#delete{
+	margin-top : 1em;
+}
+
+@media only screen and (max-width: 1000px) {
+	#header {
+		text-align:center;
+		font-size:0.8em;	
+	}
+	body {
+		margin: 10px;
+		font-size: 0.9em;
+	}
+	h1 {
+		text-align: center;
+	}
+	#delete{
+		text-align: center;
+	}
+}
+
+
