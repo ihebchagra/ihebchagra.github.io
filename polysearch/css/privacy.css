@@ -1,0 +1,39 @@
+html {
+	background-color: #F1F1F1;
+}
+
+body {
+	margin: 1em;
+	font-size: 16px;
+	font-family: serif;
+}
+
+h1, h3 {
+	color: #1E1E1E;
+}
+
+#header {
+	font-size:12px;	
+}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+@media only screen and (max-width: 1000px) {
+	#header {
+		text-align:center;
+		font-size:0.8em;	
+	}
+	body {
+		margin: 10px;
+		font-size: 0.9em;
+	}
+	h1 {
+		text-align: center;
+	}
+}
+
+
+
