@@ -31,10 +31,11 @@ function print_results(result_list){
 		strong.innerText = val 
 		titleDiv.appendChild(strong)
 
-		var a = document.createElement("a");
-		a.innerText="[+]"
-		a.setAttribute("onclick",'toggle_args(this,"show")')
-		titleDiv.appendChild(a)
+		var span = document.createElement("span");
+		span.innerText="[+]"
+		span.setAttribute("class","toggle")
+		span.setAttribute("onclick",'toggle_args(this,"show")')
+		titleDiv.appendChild(span)
 		
 		//arguments
 		var div = document.createElement("div");
@@ -92,10 +93,11 @@ function print_results(result_list){
 		strong.innerText = val 
 		titleDiv.appendChild(strong)
 
-		var a = document.createElement("a");
-		a.innerText="[+]"
-		a.setAttribute("onclick",'toggle_args(this,"show")')
-		titleDiv.appendChild(a)
+		var span = document.createElement("span");
+		span.innerText="[+]"
+		span.setAttribute("class","toggle")
+		span.setAttribute("onclick",'toggle_args(this,"show")')
+		titleDiv.appendChild(span)
 		
 		//arguments
 		var div = document.createElement("div");
