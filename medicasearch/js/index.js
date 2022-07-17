@@ -232,10 +232,14 @@ function autocomplete(inp, arr) {
       a.setAttribute("class", "autocomplete-items");
       /*append the DIV element as a child of the autocomplete container:*/
       this.parentNode.appendChild(a);
+	  inc=0
       /*for each item in the array...*/
       for (i = 0; i < arr.length; i++) {
+		if (inc>9)
+			break
         /*check if the item starts with the same letters as the text field value:*/
         if (arr[i].toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(val.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''))) {
+		  inc+=1
           /*create a DIV element for each matching element:*/
           b = document.createElement("DIV");
           /*make the matching letters bold:*/
