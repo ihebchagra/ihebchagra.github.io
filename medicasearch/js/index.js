@@ -194,7 +194,7 @@ function toggleall(action){
 	buttons = document.getElementsByClassName("show") 
 	datas = document.getElementsByClassName("data")
 	if (action=="show"){
-		document.getElementById("showall").value = "Réduire Tout"
+		document.getElementById("showall").value = "Réduire"
 		document.getElementById("showall").setAttribute("onclick","toggleall('hide')")
 		for (var i=0; i<buttons.length; i++){
 			buttons[i].innerHTML="<u>[Réduire]</u>"
@@ -203,7 +203,7 @@ function toggleall(action){
 			datas[i].hidden=false
 		}
 	} else {
-		document.getElementById("showall").value = "Afficher Tout"
+		document.getElementById("showall").value = "Afficher"
 		document.getElementById("showall").setAttribute("onclick","toggleall('show')")
 		for (var i=0; i<buttons.length; i++){
 			buttons[i].innerHTML="<u>[Afficher]</u>"
@@ -357,6 +357,11 @@ function buttonPress(){
 	}
 
 	recherche()
+
+	shown = document.getElementById("showall").value
+	if (shown=="Réduire"){
+		toggleall("show")
+	}
 }
 
 
