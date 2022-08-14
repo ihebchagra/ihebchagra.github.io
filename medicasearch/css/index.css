@@ -17,8 +17,18 @@ body {
 }
 
 #query{
-	width:98%;
+  	width: calc(100% - 10px);
+	background: none;
+	border: white;
+	border-style: solid;
+	border-width: 1px;
+	color: white;
 }
+
+#query:focus {
+    outline: none;
+}
+
 #bar {
 	margin-top: 1em;
 	margin-bottom: 1.5em;
@@ -47,7 +57,7 @@ a, a:hover, a:focus, a:active {
 	/*the container must be positioned relative:*/
 	position: relative;
 	display: inline-block;
-	width:50%;
+	width: 400px
 }
 
 #buttons {
@@ -55,7 +65,15 @@ a, a:hover, a:focus, a:active {
 }
 
 #button{
-	margin-left: 8px;
+	max-width: 75px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#showall{
+	max-width: 60px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
 .autocomplete-items {
@@ -105,8 +123,7 @@ a, a:hover, a:focus, a:active {
 	.propriete {
 		font-size: 0.85em;
 	}
-
 	.autocomplete {
-		width:auto;
+  		width: calc(100% - 150px);
 	}
 }

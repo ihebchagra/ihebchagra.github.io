@@ -54,6 +54,12 @@ function setDarkTheme(state){
 			.show {
 				color: #D3D3D3;
 			}
+			#query{
+				border: white;
+				color: white;
+				border-style: solid;
+				border-width: 1px;
+			}
 			`
 		var styleSheet = document.createElement("style")
 		styleSheet.innerText = styles
@@ -75,6 +81,12 @@ function setDarkTheme(state){
 			}
 			.show {
 				color: #3D3D3d;
+			}
+			#query{
+				border: black;
+				border-style: solid;
+				border-width: 1px;
+				color: black;
 			}
 			`
 
