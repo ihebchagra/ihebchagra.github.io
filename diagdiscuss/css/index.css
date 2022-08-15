@@ -40,8 +40,26 @@ h1 {
 }
 
 #searchField {
-	width:98%;
 	height: 90%;
+  	width: calc(100% - 5px);
+	background: none;
+	border: gray;
+	border-style: solid;
+	border-width: 1px;
+	color: black;
+}
+#searchField:focus {
+    outline: none;
+}
+select{
+	background: none;
+	border: gray;
+	border-style: solid;
+	border-width: 1px;
+	color: black;
+}
+select:focus{
+    outline: none;
 }
 
 #patient_details{
@@ -52,20 +70,17 @@ h1 {
 #buttons{
 	margin-bottom: 8px;
 }
-#present_button{
-	margin-left: 5px;
-}
 
 #present_button, #absent_button{
-	padding-right: 1px;
-	padding-left: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
 .autocomplete {
 	/*the container must be positioned relative:*/
 	position: relative;
 	display: inline-block;
-	width:30%;
+	width:500px;
 }
 
 .autocomplete-items {
@@ -122,7 +137,7 @@ a, a:hover, a:focus, a:active {
 		/*the container must be positioned relative:*/
 		position: relative;
 		display: inline-block;
-		width:auto;
+  		width: calc(100% - 130px);
 	}
 	#header {
 		text-align:center;

@@ -51,6 +51,10 @@ function setDarkTheme(state){
 			h1 {
 				color: #e8cce7;
 			}
+			.searchField{
+				color: white;
+			}
+
 			`
 		var styleSheet = document.createElement("style")
 		styleSheet.innerText = styles
@@ -69,6 +73,9 @@ function setDarkTheme(state){
 			}
 			h1 {
 				color: #4f184e;
+			}
+			.searchField{
+				color: black;
 			}
 			`
 

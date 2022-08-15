@@ -18,7 +18,31 @@ h1 {
 
 #searchField{
 	margin-top: 8px;
-	width : 50%
+  	width: 700px;
+	background: none;
+	border: gray;
+	border-style: solid;
+	border-width: 1px;
+	color: black;
+}
+#searchField:focus {
+    outline: none;
+}
+#searchButton{
+	max-width: 75px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+select{
+	background: none;
+	border: gray;
+	border-style: solid;
+	border-width: 1px;
+	color: black;
+}
+select:focus{
+    outline: none;
 }
 
 #optionDiv {
@@ -48,7 +72,7 @@ a, a:hover, a:focus, a:active {
 		font-size: 0.9em;
 	}
 	#searchField{
-		width : 60%
+  		width: calc(100% - 100px);
 	}
 	.excerpt{
 		font-size: 0.85em;

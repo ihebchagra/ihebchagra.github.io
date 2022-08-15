@@ -54,6 +54,12 @@ function setDarkTheme(state){
 			.excerpt {
 				color: #C0C0C0;
 			}
+			#searchField{
+				color: white;
+			}
+			select{
+				color: white;
+			}
 			`
 		var styleSheet = document.createElement("style")
 		styleSheet.innerText = styles
@@ -75,6 +81,12 @@ function setDarkTheme(state){
 			}
 			.excerpt {
 				color: #404040;
+			}
+			#searchField{
+				color: black;
+			}
+			select{
+				color: black;
 			}
 			`
 
