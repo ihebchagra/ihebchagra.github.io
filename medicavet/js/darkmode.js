@@ -4,6 +4,7 @@ function setCookie(cname, cvalue, exdays) {
 	let expires = "expires="+ d.toUTCString();
 	if (Array.isArray(cvalue)){
 		cvalue = JSON.stringify(cvalue);
+		cvalue = cvalue.replaceAll("%","%25")
 	}
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 } 
@@ -74,7 +75,7 @@ function setDarkTheme(state){
 				color: black;
 			}
 			h1 {
-				color: #11a797;
+				color: #06312c;
 			}
 			.show {
 				color: #3D3D3d;

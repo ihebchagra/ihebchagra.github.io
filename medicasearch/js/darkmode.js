@@ -4,9 +4,11 @@ function setCookie(cname, cvalue, exdays) {
 	let expires = "expires="+ d.toUTCString();
 	if (Array.isArray(cvalue)){
 		cvalue = JSON.stringify(cvalue);
+		cvalue = cvalue.replaceAll("%","%25")
 	}
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 } 
+
 
 function getCookie(cname) {
 	let name = cname + "=";
