@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Historique - Medicavet</title>
+	<script src="main.js" type="text/javascript"></script>
+	<link rel="manifest" href="./manifest.json">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/history.css" type="text/css">
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+	<script src="js/darkmode.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div id=header>
+		<span>[</span>
+		<a id="darkMode" onclick="setDarkTheme('true')"><u>Dark mode</u></a>
+		<span>/</span>
+		<a href="./index.html"><u>Recherche</u></a>
+		<span>/</span>
+		<span>Historique</span>
+		<span>/</span>
+		<a href="./faq.html"><u>Faq</u></a>
+		<span>]</span>
+	</div>
+	<script>
+	darkTheme = getCookie("dark") || "false"
+	setDarkTheme(darkTheme)
+	</script>
+
+	<h1>Historique</h1>
+	
+	<div id="history"></div>
+	
+	<div id="delete">
+		<input type="button" value="Effacer l'historique" onclick="deleteHistory()"></input>
+	</div>
+
+	<script src="js/history.js" type="text/javascript"></script>
+</body>
+

@@ -37,6 +37,7 @@ function setCookie(cname, cvalue, exdays) {
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 } 
 
+
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -325,7 +326,7 @@ function initSearch(){
 	url = new URL(window.location.href)
 	uquery = url.searchParams.get("q");
 	if (uquery!=null){
-		document.title = uquery + ' - Medicasearch';
+		document.title = uquery + ' - Medicavet';
 		document.getElementById("query").value = uquery
 		recherche()
 	}
@@ -335,7 +336,7 @@ function initSearch(){
 
 function buttonPress(){
 	//history management
-	hlist = getCookie("MShistory")
+	hlist = getCookie("MVhistory")
 	if (hlist.length == 0)
 		hlist = []
 
@@ -344,16 +345,16 @@ function buttonPress(){
 	hlist.unshift(query)
 	if (hlist.length>50)
 		hlist.pop()
-	setCookie("MShistory",hlist,30)
+	setCookie("MVhistory",hlist,30)
 
 	url = new URL(window.location.href)
-	document.title = query + ' - Medicasearch';
+	document.title = query + ' - Medicavet';
 	uquery = url.searchParams.get("q");
 	url.searchParams.set("q",query)
 	if (uquery==null){
-		history.replaceState(null, query + ' - Medicasearch', url.href);
+		history.replaceState(null, query + ' - Medicavet', url.href);
 	} else {
-		history.pushState(null, query + ' - Medicasearch', url.href);
+		history.pushState(null, query + ' - Medicavet', url.href);
 	}
 
 	recherche()

@@ -9,6 +9,7 @@ function setCookie(cname, cvalue, exdays) {
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 } 
 
+
 function getCookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
@@ -36,7 +37,7 @@ function getCookie(cname) {
 } 
 
 function generateHistory(){
-	hlist = getCookie("MShistory")
+	hlist = getCookie("MVhistory")
 	if (hlist.length == 0)
 		hlist = []
 	historyElement=document.getElementById('history')
@@ -61,7 +62,7 @@ function generateHistory(){
 }
 
 function deleteHistory(){
-	setCookie("MShistory",[],30)
+	setCookie("MVhistory",[],30)
 	generateHistory()
 }
 

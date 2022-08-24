@@ -26,13 +26,13 @@ function hashCode(string){
     return hash;
 }
 
-
 function setCookie(cname, cvalue, exdays) {
 	const d = new Date();
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	let expires = "expires="+ d.toUTCString();
 	if (Array.isArray(cvalue)){
 		cvalue = JSON.stringify(cvalue);
+		cvalue = cvalue.replaceAll("%","%25")
 	}
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 } 
