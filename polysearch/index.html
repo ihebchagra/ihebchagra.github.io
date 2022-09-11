@@ -57,17 +57,18 @@
 			<input id="searchButton" type="submit" value="Recherche" onclick="buttonPress()"></input>
 	</div>
 	<div id="optionDiv">
-		<select name='niveau_field' id='niveau_select' onchange='updateCertif(this.value)'>
-			<option value="all" selected=true>Tout Niveau</option>
-			<option value="ECN">ECN</option>
-			<option value="PCEM1">PCEM1</option>
-			<option value="PCEM2">PCEM2</option>
-			<option value="DCEM1">DCEM1</option>
-			<option value="DCEM2">DCEM2</option>
-			<option value="DCEM3">DCEM3</option>
-		</select>
+		<span id="niveauSpan">
+			<select name='niveau_field' id='niveau_select' tabindex="-1" onchange='updateCertif(this.value)'>
+				<option value="all" selected=true>Tout Niveau</option>
+				<option value="PCEM1">PCEM1</option>
+				<option value="PCEM2">PCEM2</option>
+				<option value="DCEM1">DCEM1</option>
+				<option value="DCEM2">DCEM2</option>
+				<option value="DCEM3">DCEM3</option>
+			</select>
+		</span>
 		<span id="certifSpan" hidden=true>
-			<select name='certif_field' id='certif_select'>
+			<select name='certif_field' id='certif_select' tabindex="-1">
 				<option value="all" id='certif_label' selected=true class="PCEM1 PCEM2 DCEM1 DCEM2 DCEM3">Tout Certificat</option>
 				<option value="Thème 1" class="PCEM1">Thème 1</option>
 				<option value="Thème 2a" class="PCEM1">Thème 2a</option>
