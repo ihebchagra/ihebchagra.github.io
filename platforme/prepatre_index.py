@@ -11,7 +11,7 @@ def generate_index_html(directory='.'):
         f.write('<h1>Chagra\'s very professional ECN platform</h1>\n')
         f.write('<ul>\n')
         for file_name in file_list:
-            if os.path.isfile(file_name) and file_name.endswith('.html'):
+            if os.path.isfile(file_name) and file_name.endswith('.html') and file_name!='index.html':
                 f.write('<li><a href="{}">{}</a></li>\n'.format(file_name, file_name[:-5]))
         f.write('</ul>\n')
         f.write('</body>\n')

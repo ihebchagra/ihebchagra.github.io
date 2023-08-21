@@ -5,3 +5,8 @@
 .false.clicked {
   color: red;
 }
+
+.selectable {
+  margin-top : 10px;
+  margin-bottom : 10px;
+}

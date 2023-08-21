@@ -7,14 +7,16 @@ const falseDivs = document.querySelectorAll('.false');
 // Add click event listener to trueDivs
 trueDivs.forEach(div => {
   div.addEventListener('click', () => {
-    div.classList.toggle('clicked');
+    div.classList.add('clicked');
   });
 });
 
 // Add click event listener to falseDivs
 falseDivs.forEach(div => {
   div.addEventListener('click', () => {
-    div.classList.toggle('clicked');
+    div.classList.add('clicked');
   });
 });
+
+
 
