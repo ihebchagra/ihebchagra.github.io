@@ -1,13 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
-	<meta http-equiv="refresh" content="0; url=https://iheb.tn">
-	<title>Redirecting...</title>
+	<title>Polysearch</title>
+	<script src="main.js" type="text/javascript"></script>
+	<link rel="manifest" href="./manifest.json">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/index.css" type="text/css">
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+	<script src="js/darkmode.js" type="text/javascript"></script>
 </head>
 
 <body>
-	<p>If you are not redirected automatically, follow this <a href="https://iheb.tn">link to iheb.tn</a>.</p>
-</body>
+	<div id="warning">Polysearch télécharge et prépare les base de données de recherche pour la première fois, ça peut prendre 1 minute. La base de données sera mise dans le cache pour la prochaine utilisation. <span id="progress">[0/6]</span></div>
+	<script src="js/courscommuns.js" type="text/javascript"></script>
+	<script>document.getElementById("progress").innerText = "[1/6]"</script>
+	<script src="js/pcem1.js" type="text/javascript"></script>
+	<script src="js/pcem1_titres.js" type="text/javascript"></script>
+	<script>document.getElementById("progress").innerText = "[2/6]"</script>
+	<script src="js/pcem2.js" type="text/javascript"></script>
+	<script src="js/pcem2_titres.js" type="text/javascript"></script>
+	<script>document.getElementById("progress").innerText = "[3/6]"</script>
+	<script src="js/dcem1.js" type="text/javascript"></script>
+	<script src="js/dcem1_titres.js" type="text/javascript"></script>
+	<script>document.getElementById("progress").innerText = "[4/6]"</script>
+	<script src="js/dcem2.js" type="text/javascript"></script>
+	<script src="js/dcem2_titres.js" type="text/javascript"></script>
+	<script>document.getElementById("progress").innerText = "[5/6]"</script>
+	<script src="js/dcem3.js" type="text/javascript"></script>
+	<script src="js/dcem3_titres.js" type="text/javascript"></script>
+	<script>document.getElementById("progress").innerText = "[6/6]"</script>
+	<script>document.getElementById("warning").innerHTML = ""</script>
 
-</html>
+	<div id=header>
+		<span>[</span>
+		<a id="darkMode" onclick="setDarkTheme('true')"><u>Dark mode</u></a>
+		<span>/</span>
+		<span>Recherche</span>
+		<span>/</span>
+		<a href="./history.html"><u>Historique</u></a>
+		<span>/</span>
+		<a href="./faq.html"><u>Faq</u></a>
+		<span>]</span>
+	</div>
+	<script>
+	darkTheme = getCookie("dark") || "false"
+	setDarkTheme(darkTheme)
+	</script>
+
+	<h1>Polysearch</h1>
+	<div class="notice">Moteur de recherche pour les cours communs et les polycopiés de médecine.</div>
+
+	<div id="searchDiv">
+			<input id="searchField" type="text" placeholder="Faire une recherche"></input>
+			<input id="searchButton" type="submit" value="Recherche" onclick="buttonPress()"></input>
+	</div>
+	<div id="optionDiv">
+		<span id="niveauSpan">
+			<select name='niveau_field' id='niveau_select' tabindex="-1" onchange='updateCertif(this.value)'>
+				<option value="all" selected=true>Tout Niveau</option>
+        <option value="ECN">ECN</option>
+				<option value="PCEM1">PCEM1</option>
+				<option value="PCEM2">PCEM2</option>
+				<option value="DCEM1">DCEM1</option>
+				<option value="DCEM2">DCEM2</option>
+				<option value="DCEM3">DCEM3</option>
+			</select>
+		</span>
+		<span id="certifSpan" hidden=true>
+			<select name='certif_field' id='certif_select' tabindex="-1">
+				<option value="all" id='certif_label' selected=true class="PCEM1 PCEM2 DCEM1 DCEM2 DCEM3">Tout Certificat</option>
+				<option value="Thème 1" class="PCEM1">Thème 1</option>
+				<option value="Thème 2a" class="PCEM1">Thème 2a</option>
+				<option value="Thème 2b" class="PCEM1">Thème 2b</option>
+				<option value="Thème 3" class="PCEM1">Thème 3</option>
+				<option value="Thème 4" class="PCEM1">Thème 4</option>
+				<option value="Thème 5a" class="PCEM1">Thème 5a</option>
+				<option value="Thème 5b" class="PCEM1">Thème 5b</option>
+				<option value="Thème 6" class="PCEM1">Thème 6</option>
+				<option value="Thème 7" class="PCEM1">Thème 7</option>
+				<option value="Thème 8" class="PCEM1">Thème 8</option>
+				<option value="Thème 9" class="PCEM1">Thème 9</option>
+				<option value="Secourisme" class="PCEM1">Secourisme</option>
+				<option value="Thème 10" class="PCEM2">Thème 10</option>
+				<option value="Thème 11" class="PCEM2">Thème 11</option>
+				<option value="Thème 12" class="PCEM2">Thème 12</option>
+				<option value="Thème 13" class="PCEM2">Thème 13</option>
+				<option value="Thème 14" class="PCEM2">Thème 14</option>
+				<option value="Thème 15" class="PCEM2">Thème 15</option>
+				<option value="Thème 16" class="PCEM2">Thème 16</option>
+				<option value="Thème 17" class="PCEM2">Thème 17</option>
+				<option value="Orthopédie" class="DCEM1">Orthopédie</option>
+				<option value="Rhumatologie" class="DCEM1">Rhumatologie</option>
+				<option value="Cardiologie" class="DCEM1">Cardiologie</option>
+				<option value="Pneumologie" class="DCEM1">Pneumologie</option>
+				<option value="Neurologie" class="DCEM1">Neurologie</option>
+				<option value="Hématologie" class="DCEM1">Hématologie</option>
+				<option value="Infectieux" class="DCEM1">Infectieux</option>
+				<option value="Pédiatrie 1" class="DCEM2">Pédiatrie 1</option>
+				<option value="Pédiatrie 2" class="DCEM2">Pédiatrie 2</option>
+				<option value="Urologie" class="DCEM2">Urologie</option>
+				<option value="Néphrologie" class="DCEM2">Néphrologie</option>
+				<option value="Chirurgie" class="DCEM2">Chirurgie</option>
+				<option value="Gastrologie" class="DCEM2">Gastrologie</option>
+				<option value="Endocrino-nutrition" class="DCEM2">Endocrino-nutrition</option>
+				<option value="Médecine préventive" class="DCEM2">Médecine préventive</option>
+				<option value="Gynécologie" class="DCEM3">Gynécologie</option>
+				<option value="ORL" class="DCEM3">ORL</option>
+				<option value="Ophtalmologie" class="DCEM3">Ophtalmologie</option>
+				<option value="Psychiatrie" class="DCEM3">Psychiatrie</option>
+				<option value="Thérapeutique" class="DCEM3">Thérapeutique</option>
+				<option value="Dermatologie" class="DCEM3">Dermatologie</option>
+				<option value="Médecine du travail" class="DCEM3">Médecine du travail</option>
+				<option value="Médecine interne" class="DCEM3">Médecine interne</option>
+				<option value="Médecine légale" class="DCEM3">Médecine légale</option>
+				<option value="Médecine aigue" class="DCEM3">Médecine aigue</option>
+			</select>
+		</span>
+	</div>
+	<div id="resultsDiv">
+	</div>
+
+	<script src="js/index.js" type="text/javascript"></script>
+</body>
